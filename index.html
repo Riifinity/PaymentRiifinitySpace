@@ -152,12 +152,19 @@
 <p id="line1" class="info-line"></p>
 <p id="line2" class="info-line"></p>
 <p id="line3" class="info-line"></p>
+<p id="line4" class="info-line"></p>
 
 <!-- PAYMENT BUTTONS -->
 <button class="pay-btn" id="btn-qris" onclick="togglePayment('qris')">QRIS</button>
 <div id="qris" class="accordion-content">
   <img src="https://files.catbox.moe/dxk4lk.jpeg" class="qris-preview" onclick="openModal(this.src)" alt="QRIS">
   <p>PENCET FOTO UNTUK MEMPERBESAR TAMPILAN FOTO<br>JIKA PAYMENT SUDAH PREMIUM DILARANG TF KE QRIS</p>
+</div>
+
+<button class="pay-btn" id="btn-Seabank" onclick="togglePayment('Seabank')">SEABANK</button>
+<div id="Seabank" class="accordion-content">
+  <p>NO: <strong>901631284711</strong><br>A/N: MUHAMMAD ASRORI</p>
+    <p>UTAMAKAN TF VIA SEABANK MULAI DARI NOMINAL 10K</p>
 </div>
 
 <button class="pay-btn" id="btn-dana" onclick="togglePayment('dana')">DANA</button>
@@ -172,7 +179,7 @@
 
 <button class="pay-btn" id="btn-ovo" onclick="togglePayment('ovo')">OVO</button>
 <div id="ovo" class="accordion-content">
-  <p>NO: <strong>0895383301627</strong><br>A/N: Muhammad Asrori</p>
+  <p>NO: <strong>0895383301627</strong><br>A/N: MUHAMMAD ASRORI</p>
 </div>
 
 <!-- WARNING -->
@@ -205,8 +212,9 @@ window.addEventListener('DOMContentLoaded',()=>{
       document.getElementById('logo').classList.add('drop');
       setTimeout(()=>{
         animateText('Scan QR Code Di Bawah Ini','line1',50);
-        animateText('Utamakan Transfer Via DANA Terlebih Dahulu','line2',50);
-        animateText('Transfer Via QRIS Hanya Jika DANA Belum Premium','line3',50);
+        animateText('Utamakan Transfer Via Seabank Mulai Nominal 10K','line2',50);
+        animateText('Jika Dibawah 10k Silahkan Tf Ke Dana','line3',50);
+        animateText('Transfer Via QRIS Hanya Jika DANA Belum Premium','line4',50);
         setTimeout(showButtonsSequentially,2700);
       },800);
     });
@@ -214,7 +222,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 
 function showButtonsSequentially(){
-  ['btn-qris','btn-dana','btn-gopay','btn-ovo'].forEach((id,i)=>{
+  ['btn-qris','btn-Seabank','btn-dana','btn-gopay','btn-ovo'].forEach((id,i)=>{
     setTimeout(()=>{document.getElementById(id).classList.add(i%2?'show-right':'show-left');
       if(i===3)setTimeout(showWarnings,700);},i*500);
   });
